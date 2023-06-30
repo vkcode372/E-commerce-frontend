@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import { Counter } from "./features/counter/Counter";
 import "./App.css";
-import ProductList from "./features/ProductList/Component/ProductList";
+import ProductList from "./features/Product/Component/ProductList";
 import { Home } from "./page/Home";
 import { LoginPage } from "./page/LoginPage";
 import { SignupPage } from "./page/SignupPage";
@@ -16,7 +16,7 @@ import {
 } from "react-router-dom";
 import { Cart } from "./features/Cart/Cart";
 import { CheckOut } from "./page/CheckOut";
-import ProductDetails from "./features/ProductList/Component/ProductDetails";
+import ProductDetails from "./features/Product/Component/ProductDetails";
 import { ProductDetailsPage } from "./page/ProductDetailsPage";
 
 const router = createBrowserRouter([
