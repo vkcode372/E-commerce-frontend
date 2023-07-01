@@ -10,16 +10,16 @@ export const fetchAllProductAsync = createAsyncThunk(
   'product/fetchAllProducts', async () => {
     const response = await fetchAllProducts();
     // The value we return becomes the `fulfilled` action payload
+    console.log(response.data);
     return response.data;
   }
 );
 
 export const fetchProductsByFiltersAsync = createAsyncThunk(
   'product/fetchProductsByFilters', 
-  async (filter) => {
-  const response = await fetchProductsByFilters(filter);
+  async ({filter,sort}) => {
+  const response = await fetchProductsByFilters(filter,sort);
   // The value we return becomes the `fulfilled` action payload
-  console.log(response.data);
   return response.data;
 }
 );
@@ -40,7 +40,7 @@ export const productSlice = createSlice({
       .addCase(fetchAllProductAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.products = action.payload;
-        // state.products.push(...action.payload);
+        //  state.products.push(...action.payload);
       })
 
       .addCase(fetchProductsByFiltersAsync.pending, (state) => {
@@ -49,7 +49,7 @@ export const productSlice = createSlice({
       .addCase(fetchProductsByFiltersAsync.fulfilled, (state, action) => {
         state.status = 'idle';
          state.products = action.payload;
-        // state.products.push(...action.payload);
+        //  state.products.push(...action.payload);
       });
   },
 });
